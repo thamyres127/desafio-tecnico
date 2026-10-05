@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desafio Técnico - Thamyres Micaele</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #d1d5db;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #111827;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            background: #111827;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+
+        .button:hover {
+            background: #374151;
+        }
+
+        .technology {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .technology span {
+            display: inline-block;
+            background: #e5e7eb;
+            padding: 8px 12px;
+            border-radius: 20px;
+            margin: 5px;
+        }
+
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Desafio Técnico — JavaScript</h1>
+        <p>Resolução de exercícios utilizando JavaScript puro</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Sobre o desafio</h2>
+
+            <div class="technology">
+                <p>
+                    Este projeto apresenta a resolução de três exercícios técnicos
+                    desenvolvidos em JavaScript, com foco em lógica de programação,
+                    manipulação de dados e regras de negócio.
+                </p>
+
+                <br>
+
+                <strong>Tecnologia utilizada:</strong>
+
+                <div>
+                    <span>JavaScript</span>
+                    <span>JavaScript puro</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Exercícios</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Exercício 1 — Comissão</h3>
+
+                    <p>
+                        Cálculo de comissão de vendedores de acordo com
+                        o valor das vendas realizadas.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://github.com/thamyres127/desafio-tecnico/blob/main/ex1_comissao.js"
+                        target="_blank">
+                        Ver código
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Exercício 2 — Controle de Estoque</h3>
+
+                    <p>
+                        Controle de entradas e saídas de produtos,
+                        atualização do estoque e prevenção de estoque negativo.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://github.com/thamyres127/desafio-tecnico/blob/main/ex2_estoque.js"
+                        target="_blank">
+                        Ver código
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Exercício 3 — Cálculo de Juros</h3>
+
+                    <p>
+                        Cálculo de juros por atraso e apresentação
+                        do valor original, juros e valor total.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://github.com/thamyres127/desafio-tecnico/blob/main/ex3_juros.js"
+                        target="_blank">
+                        Ver código
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Outros projetos</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Oficina Torque Center — Landing Page</h3>
+
+                    <p>
+                        Landing page desenvolvida utilizando HTML5 e CSS3.
+                    </p>
+
+                    <p>
+                        <strong>Tecnologias:</strong> HTML5 e CSS3
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://animated-hamster-056563.netlify.app/"
+                        target="_blank">
+                        Ver projeto
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Memória de Viagem — Jogo da Memória</h3>
+
+                    <p>
+                        Jogo da memória desenvolvido do zero com
+                        HTML5, CSS3 e JavaScript puro.
+                    </p>
+
+                    <p>
+                        <strong>Tecnologias:</strong> HTML5, CSS3 e JavaScript
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://thamyres127.github.io/Mem-ria-viagem/"
+                        target="_blank">
+                        Ver projeto
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>GitHub</h2>
+
+            <div class="technology">
+                <p>
+                    Confira outros projetos e códigos no meu GitHub.
+                </p>
+
+                <br>
+
+                <a
+                    class="button"
+                    href="https://github.com/thamyres127"
+                    target="_blank">
+                    Acessar GitHub
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Thamyres Micaele</p>
+        <p>Desenvolvimento Front-end</p>
+    </footer>
+
+</body>
+</html>
