@@ -1,0 +1,68 @@
+# Desafio Técnico
+
+Resolvi os 3 exercícios em JavaScript puro, sem bibliotecas. Cada exercício está em um arquivo separado, e aqui eu explico como pensei em cada um.
+
+Para rodar qualquer arquivo, é só ter o Node.js instalado e usar o comando `node nome_do_arquivo.js`.
+
+| Exercício | Arquivo |
+|---|---|
+| 1 – Comissão dos vendedores | `ex1_comissao.js` |
+| 2 – Movimentação de estoque | `ex2_estoque.js` |
+| 3 – Juros por atraso | `ex3_juros.js` |
+
+## Exercício 1 – Comissão dos vendedores
+
+**O que o exercício pede:** ler as vendas de um time comercial e calcular a comissão de cada vendedor. A regra vale para cada venda:
+
+- abaixo de R$ 100,00: não gera comissão;
+- abaixo de R$ 500,00: 1%;
+- a partir de R$ 500,00: 5%.
+
+**Como eu resolvi:**
+
+1. Criei a função `calcularComissao`, que recebe o valor de uma venda e devolve a comissão dela, usando `if` para cada faixa da regra.
+2. Criei a função `comissaoPorVendedor`, que percorre todas as vendas com um `for`. Para cada venda, calcula a comissão e soma no total daquele vendedor.
+3. Para guardar os totais, usei um objeto em que o nome do vendedor é a chave. Se o vendedor ainda não está no objeto, começo a conta do zero.
+4. No final, arredondo cada total para 2 casas decimais, porque contas com dinheiro em JavaScript podem deixar números com muitas casas depois da vírgula.
+
+**Decisões que tomei:**
+
+- Calculei a comissão em cada venda e não no total do vendedor, porque o enunciado diz "para cada venda".
+- Uma venda de exatamente R$ 100,00 ganha 1%, e uma de exatamente R$ 500,00 ganha 5%, porque as regras dizem "abaixo de" 100 e "a partir de" 500.
+
+**Resultado:** João Silva R$ 495,68, Maria Souza R$ 465,95, Carlos Oliveira R$ 379,37 e Ana Lima R$ 404,98.
+
+## Exercício 2 – Movimentação de estoque
+
+**O que o exercício pede:** um programa para lançar entradas e saídas de mercadoria dos produtos do JSON. Cada movimentação precisa ter um número identificador único e uma descrição do tipo. No final, o programa devolve a quantidade final do estoque do produto movimentado.
+
+**Como eu resolvi:**
+
+1. Criei a função `movimentarEstoque`, que recebe a lista de produtos, o código do produto, o tipo (`ENTRADA` ou `SAIDA`) e a quantidade.
+2. Procuro o produto na lista com `find`. Se ele não existir, mostro um erro.
+3. Valido os dados: o tipo precisa ser entrada ou saída, e a quantidade precisa ser um número inteiro maior que zero.
+4. Na saída, confiro se existe estoque suficiente. Assim o estoque nunca fica negativo.
+5. Se estiver tudo certo, somo (entrada) ou subtraio (saída) a quantidade do estoque do produto.
+6. Registro a movimentação com:
+   - **número identificador único:** um contador (`proximoId`) que aumenta de 1 em 1 a cada movimentação, então o número nunca se repete;
+   - **descrição:** "Entrada de mercadoria" ou "Saída de mercadoria";
+   - **estoque final:** a quantidade que ficou no produto, que é o que a função devolve.
+7. Guardo todas as movimentações em uma lista (`movimentacoes`), como um histórico.
+
+**Decisão que tomei:** usei um contador simples para o número único, porque é fácil de entender e garante que nenhum número se repete enquanto o programa está rodando. Em um sistema real, esse número viria do banco de dados.
+
+## Exercício 3 – Juros por atraso
+
+**O que o exercício pede:** a partir de um valor e de uma data de vencimento, calcular o valor dos juros na data de hoje, com taxa de 2,5% ao dia.
+
+**Como eu resolvi:**
+
+1. Criei a função `calcularJuros`, que recebe o valor, a data de vencimento (no formato `AAAA-MM-DD`) e a data de hoje.
+2. Descubro quantos dias de atraso existem. Comparo só as datas (dia, mês e ano), sem a hora, e converto cada uma em milissegundos com `Date.UTC`. Isso evita erros por causa de horário de verão. Depois divido a diferença pelo número de milissegundos de um dia.
+3. Se a conta ainda não venceu, ou vence hoje, os dias de atraso são 0 e os juros também. Uso `Math.max(0, ...)` para isso.
+4. Se já venceu, calculo: `valor × 0,025 × dias de atraso`.
+5. Arredondo os juros e o total para 2 casas decimais.
+
+**Decisão que tomei:** considerei juros simples, ou seja, 2,5% do valor original por dia, sem juros sobre juros. Foi a leitura mais direta do enunciado. Se a regra fosse juros compostos, a conta mudaria para `valor × (1,025 elevado ao número de dias) − valor`.
+
+**Exemplo:** R$ 1.000,00 com 4 dias de atraso: 1000 × 0,025 × 4 = R$ 100,00 de juros, total de R$ 1.100,00.
